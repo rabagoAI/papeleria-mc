@@ -37,40 +37,50 @@ Ve a [script.google.com](https://script.google.com) o desde la hoja de cálculo:
 Pega este código completo:
 
 ```javascript
+// ✏️ CONFIGURA AQUÍ EL EMAIL DE LA PAPELERÍA
+const EMAIL_PAPELERIA = "correo@ejemplo.com";  // ← Cambiar por el email real
+
 function doPost(e) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   const data = JSON.parse(e.postData.contents);
+  
+  sheet.appendRow([
+    new Date(),
+    data.nombre_alumno,
+    data.nombre_tutor,
+    data.telefono,
+    data.centro_educativo,
+    data.curso,
+    data.materiales,
+    data.fecha_recogida,
+    data.observaciones,
+    'Pendiente'
+  ]);
+  
+  const asunto = `📚 Nueva reserva - ${data.nombre_alumno} (${data.curso})`;
+  
+  const cuerpo = `
+Nueva reserva recibida en M.C. Papelería
 
-  if (data.tipo === 'reserva') {
-    const sheet = ss.getSheetByName('Reservas') || ss.getActiveSheet();
-    sheet.appendRow([
-      new Date(),
-      data.nombre_alumno,
-      data.nombre_tutor,
-      data.telefono,
-      data.centro_educativo,
-      data.curso,
-      data.materiales,
-      data.fecha_recogida,
-      data.observaciones || '',
-      'Pendiente'
-    ]);
-  }
+👤 ALUMNO: ${data.nombre_alumno}
+👨‍👩‍👧 TUTOR: ${data.nombre_tutor}
+📞 TELÉFONO: ${data.telefono}
+🏫 CENTRO: ${data.centro_educativo}
+📖 CURSO: ${data.curso}
+📅 FECHA RECOGIDA: ${data.fecha_recogida}
 
-  if (data.tipo === 'contacto') {
-    let sheet = ss.getSheetByName('Contactos');
-    if (!sheet) {
-      sheet = ss.insertSheet('Contactos');
-      sheet.appendRow(['Fecha', 'Nombre', 'Teléfono', 'Mensaje']);
-    }
-    sheet.appendRow([
-      new Date(),
-      data.nombre,
-      data.telefono,
-      data.mensaje
-    ]);
-  }
+📋 MATERIALES SOLICITADOS:
+${data.materiales}
 
+💬 OBSERVACIONES:
+${data.observaciones || "Ninguna"}
+
+---
+Puedes ver todas las reservas en tu Google Sheets.
+  `;
+  
+  MailApp.sendEmail(EMAIL_PAPELERIA, asunto, cuerpo);
+  
   return ContentService
     .createTextOutput(JSON.stringify({ result: 'success' }))
     .setMimeType(ContentService.MimeType.JSON);
