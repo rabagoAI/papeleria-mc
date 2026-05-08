@@ -66,7 +66,7 @@ export function AuroraHero() {
           className="font-display italic text-dorado mb-5"
           style={{ fontSize: 'clamp(1.1rem, 3vw, 1.6rem)' }}
         >
-          Tu papelería de confianza en el barrio
+          Tu papelería de confianza
         </p>
 
         <p className="font-body text-white/65 text-base md:text-lg max-w-xl mb-10 leading-relaxed">

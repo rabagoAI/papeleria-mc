@@ -4,8 +4,12 @@ import {
   Ticket, Clock, Phone, ChevronRight, Star
 } from 'lucide-react'
 import Card from '../components/Card'
+import AnimatedCard from '../components/AnimatedCard'
 import Button from '../components/Button'
 import { AuroraHero } from '../components/AuroraHero'
+
+// Duración del ciclo en segundos (debe coincidir con AnimatedCard)
+const CYCLE = 9
 
 const SERVICIOS = [
   { icon: Copy, label: 'Fotocopias', desc: 'B/N y color, tamaño A4 y A3' },
@@ -39,7 +43,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Papelería */}
           <Link to="/papeleria" className="group">
-            <Card className="border-2 border-transparent group-hover:border-dorado h-full transition-colors">
+            <AnimatedCard delay={0} className="h-full">
               <div className="flex items-start gap-4">
                 <div className="bg-gris-suave rounded-xl p-4 shrink-0">
                   <BookOpen size={32} className="text-rojo" />
@@ -57,12 +61,12 @@ export default function Home() {
                   </span>
                 </div>
               </div>
-            </Card>
+            </AnimatedCard>
           </Link>
 
           {/* Lotería */}
           <Link to="/loteria" className="group">
-            <Card className="border-2 border-transparent group-hover:border-dorado h-full transition-colors">
+            <AnimatedCard delay={CYCLE / 2} className="h-full">
               <div className="flex items-start gap-4">
                 <div className="bg-gris-suave rounded-xl p-4 shrink-0">
                   <Ticket size={32} className="text-dorado" />
@@ -80,7 +84,7 @@ export default function Home() {
                   </span>
                 </div>
               </div>
-            </Card>
+            </AnimatedCard>
           </Link>
         </div>
       </section>
@@ -96,9 +100,10 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {SERVICIOS.map(({ icon: Icon, label, desc }, i) => (
-              <Card
+              <AnimatedCard
                 key={label}
-                className={`text-center animate-fade-in-up stagger-${i + 1}`}
+                delay={(CYCLE / SERVICIOS.length) * i}
+                className="text-center"
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="bg-rojo/10 rounded-full p-3">
@@ -109,7 +114,7 @@ export default function Home() {
                     {desc}
                   </p>
                 </div>
-              </Card>
+              </AnimatedCard>
             ))}
           </div>
         </div>
