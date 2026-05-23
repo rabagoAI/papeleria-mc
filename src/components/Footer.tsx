@@ -34,14 +34,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-dorado shrink-0" />
-                <a href="tel:+34925551721" className="text-white/80 hover:text-white transition-colors">
-                  925 551 721
+                <a href="tel:+34661518434" className="text-white/80 hover:text-white transition-colors">
+                  661 51 84 34
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle size={16} className="text-dorado shrink-0" />
                 <a
-                  href="https://wa.me/34925551721"
+                  href="https://wa.me/34661518434"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-white transition-colors"

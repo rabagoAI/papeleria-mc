@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { to: '/contacto', label: 'Contacto' },
 ]
 
-const WA_URL = 'https://wa.me/34925551721?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20M.C.%20Papelar%C3%ADa'
+const WA_URL = 'https://wa.me/34661518434?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20M.C.%20Papelar%C3%ADa'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)

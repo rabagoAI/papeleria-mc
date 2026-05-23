@@ -85,10 +85,10 @@ export default function Contacto() {
                 <h2 className="font-display text-xl font-bold text-marino">Teléfono</h2>
               </div>
               <a
-                href="tel:+34925551721"
+                href="tel:+34661518434"
                 className="font-body text-2xl font-black text-rojo hover:underline block"
               >
-                925 551 721
+                661 51 84 34
               </a>
               <p className="font-body text-sm text-gray-500 mt-1">
                 Llámanos en horario de apertura
@@ -104,7 +104,7 @@ export default function Contacto() {
                 <h2 className="font-display text-xl font-bold text-marino">WhatsApp</h2>
               </div>
               <a
-                href="https://wa.me/34925551721?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n"
+                href="https://wa.me/34661518434?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -195,7 +195,7 @@ export default function Contacto() {
                       <AlertCircle size={16} className="text-rojo shrink-0 mt-0.5" />
                       <span className="font-body text-gray-700">
                         No se pudo enviar. Llámanos al{' '}
-                        <a href="tel:+34925551721" className="text-rojo font-bold">925 551 721</a>.
+                        <a href="tel:+34661518434" className="text-rojo font-bold">661 51 84 34</a>.
                       </span>
                     </div>
                   )}

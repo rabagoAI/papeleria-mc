@@ -168,11 +168,11 @@ export default function Home() {
               </table>
               <div className="mt-6 pt-4 border-t border-gris-suave">
                 <a
-                  href="tel:+34925551721"
+                  href="tel:+34661518434"
                   className="inline-flex items-center gap-2 text-rojo font-body font-bold hover:underline"
                 >
                   <Phone size={16} />
-                  925 551 721
+                  661 51 84 34
                 </a>
               </div>
             </Card>

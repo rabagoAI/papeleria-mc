@@ -101,7 +101,7 @@ export default function Reservas() {
             </p>
           </div>
           <a
-            href={`https://wa.me/34925551721?text=${waMsg}`}
+            href={`https://wa.me/34661518434?text=${waMsg}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -157,7 +157,7 @@ export default function Reservas() {
                 <p className="font-body text-sm text-gray-600 mt-1">
                   Puedes intentarlo de nuevo o{' '}
                   <a
-                    href="https://wa.me/34925551721?text=Hola%2C%20quiero%20reservar%20material%20escolar"
+                    href="https://wa.me/34661518434?text=Hola%2C%20quiero%20reservar%20material%20escolar"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-verde font-bold hover:underline"
@@ -350,7 +350,7 @@ export default function Reservas() {
             },
             {
               q: '¿Puedo modificar o cancelar la reserva?',
-              a: 'Claro que sí. Llámanos al 925 551 721 o escríbenos por WhatsApp y lo gestionamos sin problema.',
+              a: 'Claro que sí. Llámanos al 661 51 84 34 o escríbenos por WhatsApp y lo gestionamos sin problema.',
             },
             {
               q: '¿Es gratuito reservar?',
