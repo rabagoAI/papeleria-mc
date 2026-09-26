@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Ticket, ExternalLink, AlertTriangle, Star, Clock } from 'lucide-react'
+import {
+  Ticket, ExternalLink, AlertTriangle, Star, Clock, Dices, Sparkles, Goal,
+} from 'lucide-react'
 
 const JUEGOS = [
   {
@@ -9,7 +11,7 @@ const JUEGOS = [
     textColor: 'text-red-600',
     borderColor: 'border-red-200',
     bgLight: 'bg-red-50',
-    emoji: '🔴',
+    icon: Ticket,
   },
   {
     nombre: 'La Primitiva',
@@ -18,7 +20,7 @@ const JUEGOS = [
     textColor: 'text-verde',
     borderColor: 'border-green-200',
     bgLight: 'bg-green-50',
-    emoji: '🟢',
+    icon: Dices,
   },
   {
     nombre: 'Bonoloto',
@@ -27,7 +29,7 @@ const JUEGOS = [
     textColor: 'text-blue-600',
     borderColor: 'border-blue-200',
     bgLight: 'bg-blue-50',
-    emoji: '🔵',
+    icon: Dices,
   },
   {
     nombre: 'El Gordo de la Primitiva',
@@ -36,7 +38,7 @@ const JUEGOS = [
     textColor: 'text-orange-500',
     borderColor: 'border-orange-200',
     bgLight: 'bg-orange-50',
-    emoji: '🟠',
+    icon: Sparkles,
   },
   {
     nombre: 'Euromillones',
@@ -45,7 +47,7 @@ const JUEGOS = [
     textColor: 'text-yellow-600',
     borderColor: 'border-yellow-200',
     bgLight: 'bg-yellow-50',
-    emoji: '⭐',
+    icon: Star,
   },
   {
     nombre: 'La Quiniela',
@@ -54,7 +56,7 @@ const JUEGOS = [
     textColor: 'text-emerald-800',
     borderColor: 'border-emerald-200',
     bgLight: 'bg-emerald-50',
-    emoji: '⚽',
+    icon: Goal,
   },
   {
     nombre: 'ONCE / Cupón',
@@ -63,7 +65,7 @@ const JUEGOS = [
     textColor: 'text-yellow-700',
     borderColor: 'border-yellow-200',
     bgLight: 'bg-yellow-50',
-    emoji: '🎟️',
+    icon: Ticket,
   },
 ]
 
@@ -150,7 +152,7 @@ export default function Loteria() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {JUEGOS.map(({ nombre, desc, textColor, borderColor, bgLight, emoji }, i) => (
+          {JUEGOS.map(({ nombre, desc, textColor, borderColor, bgLight, icon: Icon }, i) => (
             <div
               key={nombre}
               className={`
@@ -159,7 +161,7 @@ export default function Loteria() {
               `}
             >
               <div className="flex items-start gap-3 mb-3">
-                <span className="text-3xl">{emoji}</span>
+                <Icon size={28} className={`${textColor} shrink-0`} />
                 <h3 className={`font-display text-xl font-bold ${textColor}`}>
                   {nombre}
                 </h3>

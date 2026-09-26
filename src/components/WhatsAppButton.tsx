@@ -10,10 +10,10 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
-      className="fixed bottom-6 right-6 z-50 bg-verde text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all hover:scale-110 flex items-center gap-0 group"
+      className="fixed bottom-6 right-6 z-50 bg-verde text-white p-4 rounded-full shadow-lg hover:bg-green-700 hover:scale-110 transition-[background-color,transform] duration-200 flex items-center gap-0 group"
     >
       <MessageCircle size={26} />
-      <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap font-body font-bold text-sm ml-0 group-hover:ml-2">
+      <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-[max-width,margin-left] duration-300 ease-in-out whitespace-nowrap font-body font-bold text-sm ml-0 group-hover:ml-2">
         ¿Hablamos?
       </span>
     </a>

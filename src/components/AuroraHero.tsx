@@ -1,59 +1,17 @@
-import { Component, lazy, Suspense, useEffect, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { useMotionTemplate, useMotionValue, motion, animate } from 'framer-motion'
 import { BookOpen, Phone } from 'lucide-react'
-
-const StarsCanvas = lazy(() => import('./StarsCanvas'))
-
-const AURORA_COLORS = ['#1B2A4A', '#8B1A1A', '#D4A017', '#C0392B', '#2C3E6B']
-
-class CanvasBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
-  state = { failed: false }
-  static getDerivedStateFromError() { return { failed: true } }
-  render() {
-    if (this.state.failed) return null
-    return this.props.children
-  }
-}
+import Button from './Button'
 
 export function AuroraHero() {
-  const color = useMotionValue(AURORA_COLORS[0])
-
-  useEffect(() => {
-    animate(color, AURORA_COLORS, {
-      ease: 'easeInOut',
-      duration: 12,
-      repeat: Infinity,
-      repeatType: 'mirror',
-    })
-  }, [])
-
-  const backgroundImage = useMotionTemplate`radial-gradient(130% 130% at 50% 0%, #0d1829 45%, ${color})`
-  const border = useMotionTemplate`1px solid ${color}`
-  const boxShadow = useMotionTemplate`0px 4px 28px ${color}`
-
   return (
-    <motion.section
-      style={{ backgroundImage }}
-      className="relative overflow-hidden px-4 py-24 md:py-36 flex flex-col items-center"
-    >
-      {/* Estrellas 3D — lazy + ErrorBoundary para aislar fallos de WebGL */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CanvasBoundary>
-          <Suspense fallback={null}>
-            <StarsCanvas />
-          </Suspense>
-        </CanvasBoundary>
-      </div>
+    <section className="relative overflow-hidden bg-marino px-4 pt-16 md:pt-24 pb-24 md:pb-32 flex flex-col items-center">
+      <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-dorado to-transparent" />
 
       {/* Contenido */}
       <div className="relative z-10 flex flex-col items-center text-center">
-        <motion.span
-          style={{ border, boxShadow }}
-          className="mb-6 inline-block rounded-full bg-white/5 px-4 py-1.5 text-xs font-body font-bold tracking-widest uppercase text-dorado"
-        >
+        <span className="mb-6 inline-flex items-center gap-2 bg-dorado/20 text-dorado border border-dorado/30 rounded-full px-4 py-1.5 text-xs font-body font-bold tracking-widest uppercase">
           Cobeja · Toledo · Desde el primer día
-        </motion.span>
+        </span>
 
         <h1
           className="font-display font-bold text-white mb-4 leading-tight"
@@ -62,40 +20,24 @@ export function AuroraHero() {
           M.C. Papelería
         </h1>
 
-        <p
-          className="font-display italic text-dorado mb-5"
-          style={{ fontSize: 'clamp(1.1rem, 3vw, 1.6rem)' }}
-        >
-          Tu papelería de confianza
-        </p>
-
         <p className="font-body text-white/65 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
-          Material escolar y de oficina, fotocopias e impresión, y punto oficial de
-          Lotería y Apuestas del Estado.
+          Tu papelería de confianza en Cobeja: material escolar, fotocopias e
+          impresión, y punto oficial de Lotería y Apuestas del Estado.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center">
           <Link to="/reservas">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 bg-rojo text-white font-body font-bold px-7 py-3.5 rounded-full hover:bg-red-700 transition-colors shadow-lg"
-            >
+            <Button size="lg" className="shadow-lg">
               <BookOpen size={19} />
               Reservar Material Escolar
-            </motion.button>
+            </Button>
           </Link>
 
           <Link to="/contacto">
-            <motion.button
-              style={{ border, boxShadow }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 bg-white/5 text-white font-body font-bold px-7 py-3.5 rounded-full hover:bg-white/10 transition-colors"
-            >
+            <Button size="lg" variant="ghost">
               <Phone size={19} />
               Llámanos
-            </motion.button>
+            </Button>
           </Link>
         </div>
       </div>
@@ -109,6 +51,6 @@ export function AuroraHero() {
           />
         </svg>
       </div>
-    </motion.section>
+    </section>
   )
 }

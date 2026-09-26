@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      // Escala de radios de esquina (mantener consistencia en toda la web):
+      // - rounded-md   (6px)  → enlaces de navegación
+      // - rounded-xl   (12px) → elementos anidados pequeños (iconos, inputs, badges)
+      // - rounded-2xl  (16px) → tarjetas y paneles
+      // - rounded-3xl  (24px) → bloques grandes destacados (CTAs, formularios)
+      // - rounded-full        → botones, píldoras y elementos circulares
       colors: {
         rojo: '#C0392B',
         dorado: '#D4A017',

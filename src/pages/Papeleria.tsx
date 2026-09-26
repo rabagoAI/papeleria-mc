@@ -51,14 +51,6 @@ const CATEGORIAS = [
   },
 ]
 
-const PLACEHOLDER_ITEMS = [
-  'Cuadernos y libretas', 'Bolígrafos y plumas', 'Lápices de colores',
-  'Rotuladores', 'Reglas y escuadras', 'Compases', 'Mochilas escolares',
-  'Estuches y portalápices', 'Pegamentos y colas', 'Tijeras escolares',
-  'Carpetas y archivadores', 'Folios y papel', 'Sobres y tarjetas',
-  'Celo y cintas adhesivas', 'Grapas y grapadora', 'Post-its',
-]
-
 export default function Papeleria() {
   return (
     <div className="pt-16 md:pt-20">
@@ -114,34 +106,6 @@ export default function Papeleria() {
               </p>
             </Card>
           ))}
-        </div>
-      </section>
-
-      {/* Galería / Grid de productos */}
-      <section className="bg-gris-suave py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-marino mb-3">
-              Algunos de nuestros productos
-            </h2>
-            <div className="golden-divider" />
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-            {PLACEHOLDER_ITEMS.map((item, i) => (
-              <div
-                key={item}
-                className={`bg-white rounded-xl p-4 text-center shadow-sm border border-gris-suave card-hover animate-fade-in-up stagger-${Math.min(i + 1, 7)}`}
-              >
-                <div className="w-full aspect-square bg-gris-suave rounded-lg mb-3 flex items-center justify-center">
-                  <Package size={32} className="text-gray-300" />
-                </div>
-                <p className="font-body text-sm font-medium text-marino">{item}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center font-body text-gray-500 text-sm mt-6">
-            * Surtido sujeto a disponibilidad. Consulta disponibilidad en tienda.
-          </p>
         </div>
       </section>
 
